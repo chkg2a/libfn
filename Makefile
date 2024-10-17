@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror -I./includes
 NAME = libfn.a
 
 # Source files
-SRC = src/fn_char/fn_isalpha.c
+SRC = $(wildcard src/fn_char/*.c src/fn_str/*.c)
 
 # Object files (generated from source files)
 OBJ = $(SRC:.c=.o)
@@ -36,6 +36,7 @@ $(NAME): $(OBJ)
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+# Rule to build and run the test file
 run:
 	@$(CC) $(CFLAGS) -o a.out test/test.c -L. -lfn
 	@./a.out
@@ -51,4 +52,3 @@ fclean: clean
 re: fclean all run
 
 .PHONY: all clean fclean re
-

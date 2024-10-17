@@ -2,20 +2,18 @@
  * ********************************************
  *
  *
- *    libfn.h
+ *    fn_isalnum.c
  *
  *    By: ChK <chk@chkg2a.com}>
  *
- *    Created: 2024-10-17 19:09 by ChK
- *    Updated: 2024-10-17 19:09 by ChK
+ *    Created: 2024-10-17 23:39 by ChK
+ *    Updated: 2024-10-17 23:39 by ChK
  *
  * ********************************************
 */
 
-#ifndef FN_LIB_H
-#define FN_LIB_H
-
 #include "fn_char.h"
-#include "fn_str.h"
 
-#endif
+int fn_isalnum(const int c){
+  return (fn_isalpha(c) || fn_isdigit(c));
+}

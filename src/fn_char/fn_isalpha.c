@@ -12,6 +12,6 @@
  * ********************************************
 */
 
-int fn_isalpha(int c){
+int fn_isalpha(const int c){
   return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
 }

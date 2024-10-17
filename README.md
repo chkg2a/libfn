@@ -16,8 +16,8 @@ In this part, the behavior of standard libc functions are replicated with names 
 - `bzero`
 - `memcpy`
 - `memmove`
-- `strlcpy`
-- `strlcat`
+- `strcpy`
+- `strcat`
 - `toupper`
 - `tolower`
 - `strchr`
