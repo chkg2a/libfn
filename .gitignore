@@ -10,3 +10,6 @@ test
 
 # Bear Clangd
 compile_commands.json
+
+# Misc
+.cache
