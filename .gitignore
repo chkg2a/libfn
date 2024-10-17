@@ -1,5 +1,12 @@
 # Dir
 test
 
+# Static Library
+*.a
+*.o
+
 # Output File
-.out
+*.out
+
+# Bear Clangd
+compile_commands.json
