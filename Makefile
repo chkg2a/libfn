@@ -6,7 +6,7 @@
 #*    By: ChK <chk@chkg2a.com}>
 #*
 #*    Created: 2024-10-17 19:08 by ChK
-#*    Updated: 2024-10-17 19:08 by ChK
+#*    Updated: 2024-10-18 20:45 by ChK
 #*
 #* ********************************************
 
@@ -18,6 +18,9 @@ CFLAGS = -Wall -Wextra -Werror -I./includes
 
 # Static library name
 NAME = libfn.a
+OUTNAME = a.out
+TESTDIR = test
+TESTFILE = test.c
 
 # Source files
 SRC = $(wildcard src/fn_char/*.c src/fn_str/*.c)
@@ -38,8 +41,8 @@ $(NAME): $(OBJ)
 
 # Rule to build and run the test file
 run:
-	@$(CC) $(CFLAGS) -o a.out test/test.c -L. -lfn
-	@./a.out
+	@$(CC) $(CFLAGS) -o ${OUTNAME} ${TESTDIR}/${TESTFILE} -L. -lfn
+	@./${OUTNAME}
 
 # Clean up object files and the library
 clean:
@@ -47,7 +50,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f a.out
+	@rm -f ${OUTNAME}
 
 re: fclean all run
 
