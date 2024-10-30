@@ -1,3 +1,17 @@
+/*
+ * ********************************************
+ *
+ *
+ *    fn_pqueue.cpp
+ *
+ *    By: ChK <chk@chkg2a.com}>
+ *
+ *    Created: 2024-10-30 21:33 by ChK
+ *    Updated: 2024-10-30 21:33 by ChK
+ *
+ * ********************************************
+*/
+
 #include <iostream>
 #include "fn_pqueue.h"
 
