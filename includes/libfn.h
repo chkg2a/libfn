@@ -17,10 +17,5 @@
 
 #include "fn_char.h"
 #include "fn_str.h"
-#include "fn_ll.h"
-#include "fn_dll.h"
-#include "fn_pqueue.h"
-#include "fn_queue.h"
-#include "fn_stack.h"
 
 #endif
