@@ -15,8 +15,8 @@
 #include "fn_str.h"
 
 int fn_strlcat(char * dst, const char * src, int dstsize){
-  const int dstpos = fn_strlen(dst);
-  const int srcpos = fn_strlen(src);
+  const int dstpos = chk::fn_strlen(dst);
+  const int srcpos = chk::fn_strlen(src);
   int pos = dstsize - dstpos - 1;
   int currentPos = 0;
 

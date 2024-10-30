@@ -18,7 +18,7 @@ int fn_atoi(const char * str){
   int number = 0;  
   int pos = 0;
   while(str[pos] != '\0'){
-    if(fn_isdigit(str[pos])){
+    if(chk::fn_isdigit(str[pos])){
       number = number * 10 + str[pos] - 48;
     }
     pos++;
