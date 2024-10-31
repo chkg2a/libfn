@@ -16,9 +16,9 @@
 #define FN_LINKEDLIST_H
 
 namespace chk {
-typedef struct LNode {
-  struct LNode *next;
-  int data;
+typedef struct ListNode {
+  struct ListNode *next;
+  int val;
 } *List;
 
 List list_getNode(int);

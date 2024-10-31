@@ -16,12 +16,12 @@
 #define FN_DLINKEDLIST_H
 
 namespace chk {
-struct DLNode {
-  struct DLNode *next;
-  int data;
-  struct DLNode *prev;
+struct DoubleeListNode {
+  struct DoubleeListNode *next;
+  int val;
+  struct DoubleeListNode *prev;
 };
-typedef DLNode *DList;
+typedef DoubleeListNode *DList;
 
 DList dlist_getNode(int);
 DList dlist_init();

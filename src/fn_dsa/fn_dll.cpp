@@ -19,8 +19,8 @@ using std::cout, std::endl;
 
 namespace chk {
 DList dlist_getNode(int data) {
-  DList newNode = new DLNode;
-  newNode->data = data;
+  DList newNode = new DoubleeListNode;
+  newNode->val = data;
   newNode->next = NULL;
   newNode->prev = NULL;
   return newNode;
@@ -94,7 +94,7 @@ void dlist_destroy(DList head) {
 void dlist_display(DList head) {
   DList current = head->next;
   while (current != NULL) {
-    cout << current->data << "<->";
+    cout << current->val << "<->";
     current = current->next;
   }
   cout << "null";

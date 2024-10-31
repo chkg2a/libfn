@@ -19,8 +19,8 @@ using std::cout, std::endl;
 
 namespace chk {
 List list_getNode(int data) {
-  List newNode = new LNode;
-  newNode->data = data;
+  List newNode = new ListNode;
+  newNode->val = data;
   newNode->next = NULL;
   return newNode;
 }
@@ -86,7 +86,7 @@ void list_destroy(List head) {
 void list_display(List head) {
   List current = head->next;
   while (current != NULL) {
-    cout << current->data << "->";
+    cout << current->val << "->";
     current = current->next;
   }
   cout << "null";
