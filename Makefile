@@ -63,13 +63,12 @@ uninstall:
 	@rm -rf $(INCLUDESDIR)
 	@echo "Header files removed from $(INCLUDESDIR)"
 
-clean install: uninstall install
-
 # Clean up object files and the library
-clean:
+clean: uninstall
 	@rm -f $(OBJ)
 
-fclean: clean
+fclean: 
+	@rm -f $(OBJ)
 	@rm -f $(NAME)
 	@rm -f ${OUTNAME}
 
