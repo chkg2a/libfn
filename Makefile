@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror -I./includes
 NAME = libfn.a
 OUTNAME = a.out
 TESTDIR = test
-TESTFILE = test.c
+TESTFILE = test.cpp
 INCLUDESDIR = /usr/local/include/chkg2a
 
 # Source files
@@ -49,7 +49,7 @@ run:
 	@./${OUTNAME}
 
 # Install target to place the library and header files
-install:
+install: all
 	@install -m 644 $(NAME) /usr/local/lib/
 	@echo "Library installed to /usr/local/lib/"
 	@mkdir -p $(INCLUDESDIR)
