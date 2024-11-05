@@ -12,11 +12,10 @@
  * ********************************************
  */
 
-#include <iostream>
 #include "fn_utility.h"
 
 namespace chk {
-void display(const int arr[], const int &size) {
+void display_arr(const int arr[], const int &size) {
   for (int i = 0; i < size; i++) {
     std::cout << arr[i] << ' ';
   }
