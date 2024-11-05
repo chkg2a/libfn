@@ -101,7 +101,43 @@ BST searchParent(BST root, int val) {
   }
 }
 
-void deleteNode(BST, BST);
-void deleteNode(BST, int);
-void destroyTree(BST);
+void deleteNode(BST root, BST node) {
+  BST successor, parent;
+  if (node->right == NULL && node->left == NULL) {
+    parent = searchParent(root, node->data);
+    if (parent->left == node) {
+      parent->left = NULL;
+    } else {
+      parent->right = NULL;
+    }
+    delete node;
+  } else if ((node->right == NULL && node->left != NULL) ||
+             (node->right != NULL && node->left == NULL)) {
+    BST childNode;
+    parent = searchParent(root, node->data);
+    if (node->right != NULL) {
+      childNode = node->right;
+    } else {
+      childNode = node->left;
+    }
+    if (parent->right == node) {
+      parent->right = childNode;
+    } else {
+      parent->left = childNode;
+    }
+    delete node;
+  } else {
+    successor = inorder_successor(root);
+    parent = searchParent(root, successor->data);
+    node->data = successor->data;
+    deleteNode(parent, successor);
+  }
+};
+void destroyTree(BST root) {
+  if (root) {
+    destroyTree(root);
+    destroyTree(root);
+    delete root;
+  }
+};
 } // namespace chk
