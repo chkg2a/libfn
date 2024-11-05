@@ -14,9 +14,12 @@
 
 #ifndef FN_UTILITY_H
 #define FN_UTILITY_H
+#include <iostream>
+#include <vector>
 
 namespace chk {
-void display(const int arr[], const int &size);
+void display_arr(const int arr[], const int &size);
+void display_vec(const std::vector<int> nums);
 }
 
 #endif // !FN_UTILITY_H
