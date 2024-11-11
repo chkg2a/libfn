@@ -84,7 +84,7 @@ void list_destroy(List head) {
 }
 
 void list_display(List head) {
-  List current = head->next;
+  List current = head;
   while (current != NULL) {
     cout << current->val << "->";
     current = current->next;

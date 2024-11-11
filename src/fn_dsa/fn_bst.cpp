@@ -41,14 +41,16 @@ void postorderTraversal(BST root) {
   }
 };
 BST searchTree(BST root, int val) {
+  if (root == NULL) {
+    return NULL;
+  }
   if (val < root->data) {
-    searchTree(root->left, val);
+    return searchTree(root->left, val);
   } else if (val > root->data) {
-    searchTree(root->right, val);
+    return searchTree(root->right, val);
   } else {
     return root;
   }
-  return NULL;
 };
 BST inorder_successor(BST root) {
   BST temp = root->right;
@@ -135,8 +137,8 @@ void deleteNode(BST root, BST node) {
 };
 void destroyTree(BST root) {
   if (root) {
-    destroyTree(root);
-    destroyTree(root);
+    destroyTree(root->left);
+    destroyTree(root->right);
     delete root;
   }
 };
