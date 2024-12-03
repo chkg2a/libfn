@@ -23,7 +23,7 @@ TESTFILE = test.cpp
 INCLUDESDIR = /usr/local/include/chkg2a
 
 # Source files
-SRC = $(wildcard src/fn_char/*.c src/fn_str/*.c src/fn_dsa/*.cpp src/fn_utility/*.cpp)
+SRC = $(wildcard src/fn_char/*.c src/fn_str/*.c src/fn_dsa/*.cpp src/fn_utility/*.cpp src/fn_algorithms/*.cpp)
 
 # Object files (generated from source files)
 OBJ = $(SRC:.c=.o)
