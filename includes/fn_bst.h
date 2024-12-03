@@ -2,13 +2,13 @@
 #define FN_BST_H
 
 namespace chk {
-struct BSTNode {
-  struct BSTNode *right;
-  int data;
-  struct BSTNode *left;
+struct TreeNode {
+  struct TreeNode *right;
+  int val;
+  struct TreeNode *left;
 };
 
-typedef struct BSTNode *BST;
+typedef struct TreeNode *BST;
 
 BST addtoTree(BST, int);
 void preorderTraversal(BST);
