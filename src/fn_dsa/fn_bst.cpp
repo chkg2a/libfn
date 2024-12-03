@@ -6,12 +6,12 @@ using std::cout;
 namespace chk {
 BST addtoTree(BST root, int val) {
   if (root == NULL) {
-    root = new BSTNode;
-    root->data = val;
+    root = new TreeNode;
+    root->val = val;
     root->left = NULL;
     root->right = NULL;
   } else {
-    if (val < root->data) {
+    if (val < root->val) {
       root->left = addtoTree(root->left, val);
     } else {
       root->right = addtoTree(root->right, val);
@@ -21,7 +21,7 @@ BST addtoTree(BST root, int val) {
 }
 void preorderTraversal(BST root) {
   if (root) {
-    cout << root->data << ' ';
+    cout << root->val << ' ';
     preorderTraversal(root->left);
     preorderTraversal(root->right);
   }
@@ -29,7 +29,7 @@ void preorderTraversal(BST root) {
 void inorderTraversal(BST root) {
   if (root) {
     inorderTraversal(root->left);
-    cout << root->data << ' ';
+    cout << root->val << ' ';
     inorderTraversal(root->right);
   }
 };
@@ -37,16 +37,16 @@ void postorderTraversal(BST root) {
   if (root) {
     postorderTraversal(root->left);
     postorderTraversal(root->right);
-    cout << root->data << ' ';
+    cout << root->val << ' ';
   }
 };
 BST searchTree(BST root, int val) {
   if (root == NULL) {
     return NULL;
   }
-  if (val < root->data) {
+  if (val < root->val) {
     return searchTree(root->left, val);
-  } else if (val > root->data) {
+  } else if (val > root->val) {
     return searchTree(root->right, val);
   } else {
     return root;
@@ -66,20 +66,20 @@ BST inorder_successor(BST root) {
 /*  BST node, temp1, temp2;*/
 /*  node = searchTree(root, val);*/
 /*  static BST parent;*/
-/*  if (root->data != node->data) {*/
+/*  if (root->val != node->val) {*/
 /*    temp1 = root->left;*/
 /*    temp2 = root->right;*/
 /*    parent = root;*/
-/*    if (temp1 && node->data < root->data) {*/
-/*      if ((temp1->data) != node->data) {*/
+/*    if (temp1 && node->val < root->val) {*/
+/*      if ((temp1->val) != node->val) {*/
 /*        parent = temp1;*/
-/*        searchParent(temp1, node->data);*/
+/*        searchParent(temp1, node->val);*/
 /*      } else*/
 /*        return parent;*/
-/*    } else if (temp2 && node->data >= root->data) {*/
-/*      if ((temp2->data) != node->data) {*/
+/*    } else if (temp2 && node->val >= root->val) {*/
+/*      if ((temp2->val) != node->val) {*/
 /*        parent = temp2;*/
-/*        searchParent(temp2, node->data);*/
+/*        searchParent(temp2, node->val);*/
 /*      } else*/
 /*        return parent;*/
 /*    } else if (node == root)*/
@@ -89,14 +89,14 @@ BST inorder_successor(BST root) {
 /*};*/
 
 BST searchParent(BST root, int val) {
-  if (root == NULL || root->data == val) {
+  if (root == NULL || root->val == val) {
     return NULL;
   }
-  if ((root->left && root->left->data == val) ||
-      (root->right && root->right->data == val)) {
+  if ((root->left && root->left->val == val) ||
+      (root->right && root->right->val == val)) {
     return root;
   }
-  if (val < root->data) {
+  if (val < root->val) {
     return searchParent(root->left, val);
   } else {
     return searchParent(root->right, val);
@@ -106,7 +106,7 @@ BST searchParent(BST root, int val) {
 void deleteNode(BST root, BST node) {
   BST successor, parent;
   if (node->right == NULL && node->left == NULL) {
-    parent = searchParent(root, node->data);
+    parent = searchParent(root, node->val);
     if (parent->left == node) {
       parent->left = NULL;
     } else {
@@ -116,7 +116,7 @@ void deleteNode(BST root, BST node) {
   } else if ((node->right == NULL && node->left != NULL) ||
              (node->right != NULL && node->left == NULL)) {
     BST childNode;
-    parent = searchParent(root, node->data);
+    parent = searchParent(root, node->val);
     if (node->right != NULL) {
       childNode = node->right;
     } else {
@@ -130,8 +130,8 @@ void deleteNode(BST root, BST node) {
     delete node;
   } else {
     successor = inorder_successor(root);
-    parent = searchParent(root, successor->data);
-    node->data = successor->data;
+    parent = searchParent(root, successor->val);
+    node->val = successor->val;
     deleteNode(parent, successor);
   }
 };
