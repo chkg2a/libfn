@@ -16,16 +16,15 @@
 #include <utility>
 
 namespace chk{
-void selectionSort(int arr[], const int & size){
-  for(int i = 0; i < size - 1; i++){
-    int currentMin = i;
-    for(int j = i+1; j < size; j++){
-      if(arr[currentMin] > arr[j]){
-        currentMin = j;
+void selection_sort(int arr[], const int & size){
+  for(int i=0; i < size; i++){
+    int minI = i;
+    for(int j = i + 1; j < size +1; j++){
+      if(arr[minI] > arr[j]){
+        arr[minI] ^= arr[j];
+        arr[j] ^= arr[minI];
+        arr[minI] ^= arr[j];
       }
-    }
-    if(currentMin != i){
-      std::swap(arr[currentMin], arr[i]);
     }
   }
 }
