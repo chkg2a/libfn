@@ -16,10 +16,13 @@
 #define FN_UTILITY_H
 #include <iostream>
 #include <vector>
+#include <string>
 
 namespace chk {
-void display_arr(const int arr[], const int &size);
-void display_vec(const std::vector<int> nums);
+template<typename T>
+void display_arr(const T * arr, const int &size);
+template<typename T>
+void display_vec(const std::vector<T> nums);
 }
 
 #endif // !FN_UTILITY_H

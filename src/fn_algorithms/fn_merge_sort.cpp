@@ -13,14 +13,15 @@
  */
 
 #include "fn_algorithms.h"
+#include <vector>
 
 namespace chk {
-void merge(int *arr, const int &left, const int &mid, const int &right) {
+template<typename T>
+void merge(T *arr, const int &left, const int &mid, const int &right) {
   const int n1 = mid - left + 1;
   const int n2 = right - mid;
 
-  int *L = new int(n1);
-  int *R = new int(n2);
+  std::vector<T> L(n1), R(n2);
 
   for (int i = 0; i < n1; i++)
     L[i] = arr[i + left];
@@ -40,16 +41,20 @@ void merge(int *arr, const int &left, const int &mid, const int &right) {
     arr[k++] = L[i++];
   while (j < n2)
     arr[k++] = R[j++];
-
-  delete L;
-  delete R;
 }
-void merge_sort(int *arr, const int &size, const int &left, const int &right) {
+template<typename T>
+void merge_sort(T *arr, const int &left, const int &right) {
   if (left < right) {
-    const int mid = (left + right) / 2;
-    merge_sort(arr, size, left, mid);
-    merge_sort(arr, size, mid + 1, right);
+    const int mid = left + (right - left) / 2;
+    merge_sort(arr, left, mid);
+    merge_sort(arr, mid + 1, right);
     merge(arr, left, mid, right);
   }
 }
+template void merge<int>(int * arr, const int & left, const int& mid, const int & right);
+template void merge<float>(float * arr, const int & left, const int& mid, const int & right);
+template void merge<std::string>(std::string * arr, const int & left, const int& mid, const int & right);
+template void merge_sort<int>(int * arr, const int & left, const int & right);
+template void merge_sort<float>(float * arr, const int & left, const int & right);
+template void merge_sort<std::string>(std::string * arr, const int & left, const int & right);
 } // namespace chk

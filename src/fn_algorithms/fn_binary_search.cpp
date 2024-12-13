@@ -15,7 +15,7 @@
 #include "fn_algorithms.h"
 
 namespace chk {
-int binary_search(const int arr[], const int &size, const int &toSearch) {
+int binary_search(const int * arr, const int &size, const int &toSearch) {
   int low = 0;
   int high = size - 1;
   int mid;

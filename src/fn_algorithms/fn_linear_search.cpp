@@ -15,7 +15,7 @@
 #include "fn_algorithms.h"
 
 namespace chk {
-int linear_search(const int arr[], const int &size, const int &toSearch) {
+int linear_search(const int * arr, const int &size, const int &toSearch) {
   for (int i = 0; i < size; i++) {
     if (arr[i] == toSearch) {
       return 1;
